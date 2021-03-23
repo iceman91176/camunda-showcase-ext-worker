@@ -11,7 +11,8 @@
     "camunda-external-task-client-js": "2.0.0",
     "@microsoft/microsoft-graph-client": "1.7.0",
     "dotenv": "^8.2.0",
-    "nodemailer": "^6.3.1"
+    "nodemailer": "^6.3.1",
+    "@elastic/elasticsearch": "~7.11.0"
   },
   "author": "",
   "license": "ISC"
