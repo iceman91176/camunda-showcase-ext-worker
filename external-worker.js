@@ -26,7 +26,6 @@ const config = {
 };
 
 if (process.env.KEYCLOAK_AUTH_ENABLED){
-    console.log("with auth",process.env.KEYCLOAK_TOKEN_URL);
     const keycloakAuthentication = new KeycloakAuthInterceptor({
     tokenEndpoint: process.env.KEYCLOAK_TOKEN_URL,
     clientId: process.env.KEYCLOAK_CLIENT,
@@ -35,7 +34,6 @@ if (process.env.KEYCLOAK_AUTH_ENABLED){
     config.interceptors=keycloakAuthentication;
 }
 
-//console.log(config);
 
 const client = new Client(config);
 
