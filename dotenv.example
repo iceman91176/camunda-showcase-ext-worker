@@ -1,0 +1,7 @@
+SMTP_HOST=some-mail.org
+SMTP_PORT=25
+MAIL_FROM=no-reply@witcom.de
+CAMUNDA_REST_BASE_URL=https://localhost:8080/engine-rest
+WORKER_ID=sample-worker
+ES_HOST=http://elasticsearch-rest-external.elasticsearch-dev.svc:9200
+ES_INDEX=demo-insurance-sale

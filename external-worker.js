@@ -1,10 +1,13 @@
 const {
   Client,
+  KeycloakAuthInterceptor,
   logger
 } = require("camunda-external-task-client-js");
 const got = require("got");
 
 require('dotenv').config();
+
+
 
 const mailService = require('./mail.js');
 const esService = require('./elastic-index.js')
@@ -21,6 +24,18 @@ const config = {
   use: logger,
   autoPoll: false
 };
+
+if (process.env.KEYCLOAK_AUTH_ENABLED){
+    console.log("with auth",process.env.KEYCLOAK_TOKEN_URL);
+    const keycloakAuthentication = new KeycloakAuthInterceptor({
+    tokenEndpoint: process.env.KEYCLOAK_TOKEN_URL,
+    clientId: process.env.KEYCLOAK_CLIENT,
+    clientSecret: process.env.KEYCLOAK_CLIENT_SECRET
+    });
+    config.interceptors=keycloakAuthentication;
+}
+
+//console.log(config);
 
 const client = new Client(config);
 
